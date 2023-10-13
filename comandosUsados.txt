@@ -1,0 +1,11 @@
+npm i --save class-validator class-transformer
+
+npm i --save @nestjs/mapped-types
+
+npm i --save -D prisma
+
+npx prisma init
+
+npm i @nestjs/jwt
+
+npm i @nestjs/jwt@9.0.0
