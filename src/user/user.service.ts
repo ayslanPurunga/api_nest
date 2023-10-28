@@ -41,6 +41,7 @@ export class UserService {
   async list() {
     return this.usersRepository.find();
   }
+
   async show(id: number) {
     await this.exists(id);
     return this.usersRepository.findOneBy({
