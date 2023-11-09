@@ -13,7 +13,9 @@ import { UserEntity } from './user/entity/user.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      envFilePath: process.env.ENV === 'test' ? '.env.test' : '.env',
+    }),
     ThrottlerModule.forRoot({
       ttl: 60,
       limit: 10,
@@ -43,7 +45,7 @@ import { UserEntity } from './user/entity/user.entity';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: process.env.DB_HOST,
+      host: String(process.env.DB_HOST),
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
@@ -60,5 +62,6 @@ import { UserEntity } from './user/entity/user.entity';
       useClass: ThrottlerGuard,
     },
   ],
+  exports: [AppService],
 })
 export class AppModule {}
