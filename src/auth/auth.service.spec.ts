@@ -55,7 +55,7 @@ describe('AuthService', () => {
 
   describe('Autenticação', () => {
     test('login method', async () => {
-      const result = await authService.login('ayslan@gmail.com', '123456');
+      const result = await authService.login('ayslan@gmail.com', 'purunga22');
 
       expect(result).toEqual({ accessToken });
     });
